@@ -5,6 +5,7 @@ import ProgressBar from './components/ProgressBar';
 import SectionCard from './components/SectionCard';
 import AuditTable from './components/AuditTable';
 import SatisfactionTable from './components/SatisfactionTable';
+import InstallPrompt from './components/InstallPrompt';
 import { sections, partB, partC, partD, partE, partF, satItems, tnDistricts, districtTaluks } from './constants/auditData';
 
 function App() {
@@ -136,6 +137,7 @@ function App() {
 
   return (
     <div className="App">
+      <InstallPrompt />
       <Header />
       <ProgressBar progress={progress} currentSection={currentSectionLabel} />
 
