@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>மாண்புமிகு மக்கள் – அரசு அலுவலக சமூக தணிக்கை</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300;400;600;700&family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --gold: #c9922a;
+    --gold-light: #f0c060;
+    --cream: #fdf6ec;
+    --white: #ffffff;
+    --red: #b91c1c;
+    --green: #166534;
+    --gray-100: #f8f8f5;
+    --gray-200: #e8e6e0;
+    --gray-500: #6b6b6b;
+    --gray-700: #2d2d2d;
+    --shadow: 0 4px 24px rgba(13,31,60,0.10);
+    --radius: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', 'Noto Sans Tamil', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  /* ─── HERO HEADER ─── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 60%, #1a3560 100%);
+    color: white;
+    padding: 36px 24px 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(201,146,42,0.04) 0, rgba(201,146,42,0.04) 1px, transparent 0, transparent 50%);
+    background-size: 28px 28px;
+  }
+  .hero-logo {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: white;
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 0 0 6px rgba(201,146,42,0.18);
+  }
+  .hero h1 {
+    font-family: 'Noto Sans Tamil', sans-serif;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+  }
+  .hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.9rem, 3vw, 1.15rem);
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 6px;
+  }
+  .hero p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.03em;
+  }
+  .badge-strip {
+    display: flex; justify-content: center; gap: 8px;
+    margin-top: 16px; flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(201,146,42,0.15);
+    border: 1px solid rgba(201,146,42,0.4);
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── PROGRESS BAR ─── */
+  .progress-wrap {
+    background: var(--navy);
+    padding: 10px 24px 14px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(13,31,60,0.3);
+  }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.72rem;
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 5px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 10px;
+    transition: width 0.5s cubic-bezier(.4,0,.2,1);
+    width: 0%;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+  }
+
+  /* ─── SECTION CARDS ─── */
+  .section-card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+    animation: fadeUp 0.4s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .section-header {
+    background: linear-gradient(90deg, var(--navy) 0%, #1a3560 100%);
+    color: white;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 2px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .section-title {
+    font-family: 'Noto Sans Tamil', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .section-title span {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    opacity: 0.65;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .section-body { padding: 20px; }
+
+  /* ─── FORM FIELDS ─── */
+  .field-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .field-group.single { grid-template-columns: 1fr; }
+  .field-group.triple { grid-template-columns: 1fr 1fr 1fr; }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  label .ta {
+    display: block;
+    font-family: 'Noto Sans Tamil', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--gray-700);
+  }
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  input[type="tel"],
+  input[type="email"],
+  textarea, select {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 9px 12px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: var(--gray-700);
+    background: var(--gray-100);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,146,42,0.12);
+    background: white;
+  }
+  textarea { min-height: 72px; resize: vertical; }
+
+  /* ─── AUDIT TABLE ─── */
+  .audit-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  .audit-table thead tr {
+    background: var(--navy);
+    color: white;
+  }
+  .audit-table thead th {
+    padding: 10px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .audit-table thead th:first-child { text-align: left; width: 42px; }
+  .audit-table thead th:nth-child(2) { text-align: left; }
+  .audit-table tbody tr {
+    border-bottom: 1px solid var(--gray-200);
+    transition: background 0.15s;
+  }
+  .audit-table tbody tr:hover { background: rgba(201,146,42,0.04); }
+  .audit-table tbody tr:last-child { border-bottom: none; }
+  .audit-table td {
+    padding: 11px 10px;
+    vertical-align: middle;
+  }
+  .audit-table td:first-child {
+    text-align: center;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.78rem;
+  }
+  .item-text { color: var(--navy); font-weight: 500; line-height: 1.45; }
+  .item-text .en { display: block; font-size: 0.72rem; color: var(--gray-500); font-weight: 400; margin-top: 2px; }
+
+  /* ─── RADIO TOGGLE BUTTONS ─── */
+  .radio-group {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .radio-group input { display: none; }
+  .radio-group label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--gray-500);
+    background: var(--gray-100);
+    border: 1.5px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 5px 8px;
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .radio-group input:checked + label {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+  .radio-group input[value="yes"]:checked + label { background: var(--green); border-color: var(--green); }
+  .radio-group input[value="no"]:checked + label  { background: var(--red);   border-color: var(--red); }
+  .radio-group input[value="na"]:checked + label  { background: #64748b; border-color: #64748b; }
+
+  .notes-input {
+    border: 1.5px solid var(--gray-200);
+    border-radius: 6px;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    font-family: inherit;
+    color: var(--gray-700);
+    background: var(--gray-100);
+    width: 100%;
+    min-width: 80px;
+  }
+  .notes-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    background: white;
+  }
+
+  /* ─── SATISFACTION TABLE ─── */
+  .sat-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+  .sat-table thead tr { background: var(--navy); color: white; }
+  .sat-table thead th {
+    padding: 10px;
+    text-align: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .sat-table thead th:first-child { text-align: left; }
+  .sat-table tbody tr { border-bottom: 1px solid var(--gray-200); }
+  .sat-table tbody tr:hover { background: rgba(201,146,42,0.04); }
+  .sat-table td { padding: 10px; vertical-align: middle; }
+
+  .star-group { display: flex; gap: 3px; justify-content: center; }
+  .star-group input { display: none; }
+  .star-group label {
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--gray-200);
+    transition: color 0.15s, transform 0.15s;
+    text-transform: none;
+    font-weight: 400;
+    border: none;
+    background: none;
+    padding: 0;
+    letter-spacing: 0;
+  }
+  .star-group label:hover { transform: scale(1.2); }
+  .star-group input:checked ~ label,
+  .star-group label:hover ~ label { color: var(--gray-200) !important; }
+  .star-group input:checked + label,
+  .star-group label:hover { color: var(--gold) !important; }
+  .star-row:has(input:nth-child(1):checked) .star-group label { color: var(--gray-200); }
+
+  /* Better star rating via JS class */
+  .star-filled { color: var(--gold) !important; }
+
+  /* ─── OBSERVATION INPUTS ─── */
+  .obs-group { display: flex; flex-direction: column; gap: 10px; }
+  .obs-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 10px 12px;
+    border: 1.5px solid var(--gray-200);
+  }
+  .obs-num {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-weight: 700;
+    font-size: 0.72rem;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .obs-item textarea {
+    border: none;
+    background: transparent;
+    font-size: 0.85rem;
+    padding: 0;
+    min-height: 40px;
+    box-shadow: none;
+  }
+  .obs-item textarea:focus {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  /* ─── RECOMMENDATION LISTS ─── */
+  .rec-list { display: flex; flex-direction: column; gap: 8px; }
+  .rec-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .rec-bullet {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 10px;
+  }
+  .rec-bullet.green { background: #22c55e; }
+  .rec-bullet.red { background: var(--red); }
+
+  /* ─── OATH / SIGNATURE BOX ─── */
+  .oath-box {
+    background: linear-gradient(135deg, #f0f7ff 0%, #fdf6ec 100%);
+    border: 1.5px solid #c8daf5;
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .oath-text {
+    font-family: 'Noto Sans Tamil', sans-serif;
+    font-size: 0.82rem;
+    color: var(--navy);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .sig-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  .sig-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .sig-line {
+    border: none;
+    border-bottom: 2px solid var(--navy);
+    background: transparent;
+    padding: 4px 0;
+    font-family: inherit;
+    font-size: 0.85rem;
+    width: 100%;
+    outline: none;
+    color: var(--navy);
+  }
+  .sig-line:focus { border-bottom-color: var(--gold); }
+
+  /* ─── SUBMIT BUTTON ─── */
+  .submit-wrap { text-align: center; margin-top: 8px; }
+  .btn-submit {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3560 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 48px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 4px 20px rgba(13,31,60,0.25);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-submit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(13,31,60,0.3); }
+  .btn-submit:hover::after { opacity: 1; }
+  .btn-submit span { position: relative; z-index: 1; }
+  .btn-submit:hover span { color: var(--navy); }
+
+  /* ─── SUCCESS MESSAGE ─── */
+  #success-msg {
+    display: none;
+    background: linear-gradient(135deg, var(--navy), #1a3560);
+    color: white;
+    text-align: center;
+    padding: 48px 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 24px;
+  }
+  #success-msg .check { font-size: 3rem; margin-bottom: 12px; }
+  #success-msg h3 { font-family: 'Noto Sans Tamil', sans-serif; font-size: 1.4rem; color: var(--gold-light); margin-bottom: 8px; }
+  #success-msg p { font-size: 0.85rem; opacity: 0.75; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+  .footer strong { color: var(--gold-light); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .field-group { grid-template-columns: 1fr; }
+    .field-group.triple { grid-template-columns: 1fr 1fr; }
+    .sig-grid { grid-template-columns: 1fr; }
+    .audit-table { font-size: 0.76rem; }
+    .radio-group label { font-size: 0.62rem; padding: 4px 5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-logo">🏛️</div>
+  <h1>மாண்புமிகு மக்கள்</h1>
+  <h2>Government Office Social Audit</h2>
+  <p>Maanbumigumakkal.com &nbsp;|&nbsp; support@maanbumigumakkal.com</p>
+  <div class="badge-strip">
+    <span class="badge">அரசு அலுவலக சமூக தணிக்கை</span>
+    <span class="badge">Volunteer Form</span>
+    <span class="badge">தன்னார்வலர் படிவம்</span>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-label">
+    <span id="progress-text">பகுதி அ – விவரங்கள்</span>
+    <span id="progress-pct">0%</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<div class="container">
+<form id="audit-form">
+
+<!-- ═══ PART A ═══ -->
+<div class="section-card" style="animation-delay:0.05s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி அ</span>
+    <div class="section-title">தன்னார்வலர் மற்றும் அலுவலக விவரங்கள்
+      <span>Volunteer & Office Details</span>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="field-group">
+      <div class="field">
+        <label><span class="ta">தன்னார்வலர் பெயர்</span>Volunteer Name</label>
+        <input type="text" name="vol_name" placeholder="பெயர் உள்ளிடவும்" required>
+      </div>
+      <div class="field">
+        <label><span class="ta">அடையாள எண்</span>ID Number</label>
+        <input type="text" name="vol_id" placeholder="MMK-XXXX">
+      </div>
+    </div>
+    <div class="field-group triple">
+      <div class="field">
+        <label><span class="ta">தணிக்கை நாள்</span>Audit Date</label>
+        <input type="date" name="audit_date" required>
+      </div>
+      <div class="field">
+        <label><span class="ta">நேரம்</span>Time</label>
+        <input type="time" name="audit_time">
+      </div>
+      <div class="field">
+        <label><span class="ta">மாவட்டம்</span>District</label>
+        <input type="text" name="district" placeholder="மாவட்டம்">
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field">
+        <label><span class="ta">வட்டம் / தாலுக்கா</span>Block / Taluk</label>
+        <input type="text" name="block">
+      </div>
+      <div class="field">
+        <label><span class="ta">அலுவலக பெயர்</span>Office Name</label>
+        <input type="text" name="office_name" required>
+      </div>
+    </div>
+    <div class="field-group single">
+      <div class="field">
+        <label><span class="ta">அலுவலக முகவரி</span>Office Address</label>
+        <textarea name="office_address" placeholder="முழு முகவரி..."></textarea>
+      </div>
+    </div>
+    <div class="field-group">
+      <div class="field">
+        <label><span class="ta">அலுவலகத் தலைவர் பெயர் & பதவி</span>Head Name & Designation</label>
+        <input type="text" name="head_name">
+      </div>
+      <div class="field">
+        <label><span class="ta">தொலைபேசி எண்</span>Phone</label>
+        <input type="tel" name="head_phone" placeholder="+91 XXXXX XXXXX">
+      </div>
+    </div>
+    <div class="field-group single">
+      <div class="field">
+        <label><span class="ta">மின்னஞ்சல் முகவரி</span>Email</label>
+        <input type="email" name="head_email" placeholder="office@gov.in">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PART B – Infrastructure ═══ -->
+<div class="section-card" style="animation-delay:0.1s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி ஆ</span>
+    <div class="section-title">அடிப்படை கட்டமைப்பு வசதிகள்
+      <span>Basic Infrastructure Facilities</span>
+    </div>
+  </div>
+  <div class="section-body" style="padding:0; overflow-x:auto;">
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>விவரம் / Description</th>
+          <th>ஆம் Yes</th>
+          <th>இல்லை No</th>
+          <th>கல் N/A</th>
+          <th>குறிப்புகள் Notes</th>
+        </tr>
+      </thead>
+      <tbody id="part-b-rows"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ PART C – Mandatory Notices ═══ -->
+<div class="section-card" style="animation-delay:0.15s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி இ</span>
+    <div class="section-title">கட்டாய அறிவிப்பு பலகைகள்
+      <span>Mandatory Notice Boards</span>
+    </div>
+  </div>
+  <div class="section-body" style="padding:0; overflow-x:auto;">
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>விவரம் / Description</th>
+          <th>ஆம் Yes</th>
+          <th>இல்லை No</th>
+          <th>கல் N/A</th>
+          <th>குறிப்புகள் Notes</th>
+        </tr>
+      </thead>
+      <tbody id="part-c-rows"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ PART D – Phone & CCTV ═══ -->
+<div class="section-card" style="animation-delay:0.2s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி ஈ</span>
+    <div class="section-title">தொலைபேசி எண்கள் மற்றும் CCTV
+      <span>Phone Numbers & CCTV</span>
+    </div>
+  </div>
+  <div class="section-body" style="padding:0; overflow-x:auto;">
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>விவரம் / Description</th>
+          <th>ஆம் Yes</th>
+          <th>இல்லை No</th>
+          <th>கல் N/A</th>
+          <th>குறிப்புகள் Notes</th>
+        </tr>
+      </thead>
+      <tbody id="part-d-rows"></tbody>
+    </table>
+    <div style="padding:16px 20px; background:var(--gray-100); border-top:1px solid var(--gray-200);">
+      <div class="field-group">
+        <div class="field">
+          <label><span class="ta">CCTV பதிவு நாட்கள்</span>Recording Retention (Days)</label>
+          <input type="text" name="cctv_retention" placeholder="நாட்கள் / Not Known">
+        </div>
+        <div class="field">
+          <label><span class="ta">CCTV கேமரா எண்ணிக்கை</span>Total CCTV Count</label>
+          <input type="text" name="cctv_count" placeholder="எண்ணிக்கை">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PART E – Citizen Charter ═══ -->
+<div class="section-card" style="animation-delay:0.25s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி உ</span>
+    <div class="section-title">குடிமக்கள் சாசன இணக்கம்
+      <span>Citizen Charter Compliance</span>
+    </div>
+  </div>
+  <div class="section-body" style="padding:0; overflow-x:auto;">
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>விவரம் / Description</th>
+          <th>ஆம் Yes</th>
+          <th>இல்லை No</th>
+          <th>கல் N/A</th>
+          <th>குறிப்புகள் Notes</th>
+        </tr>
+      </thead>
+      <tbody id="part-e-rows"></tbody>
+    </table>
+    <div style="padding:16px 20px; background:var(--gray-100); border-top:1px solid var(--gray-200);">
+      <div class="field">
+        <label><span class="ta">குடிமக்கள் சாசனம் கடைசியாக புதுப்பிக்கப்பட்ட நாள்</span>Citizen Charter Last Updated Date</label>
+        <input type="date" name="charter_updated" style="max-width:240px;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PART F – Staff Conduct ═══ -->
+<div class="section-card" style="animation-delay:0.3s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி ஊ</span>
+    <div class="section-title">ஊழியர் நடத்தை மற்றும் மக்கள் நடத்தப்படும் விதம்
+      <span>Staff Conduct & Public Treatment</span>
+    </div>
+  </div>
+  <div class="section-body" style="padding:0; overflow-x:auto;">
+    <table class="audit-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>விவரம் / Description</th>
+          <th>ஆம் Yes</th>
+          <th>இல்லை No</th>
+          <th>கல் N/A</th>
+          <th>குறிப்புகள் Notes</th>
+        </tr>
+      </thead>
+      <tbody id="part-f-rows"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ PART G – Satisfaction ═══ -->
+<div class="section-card" style="animation-delay:0.35s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி எ</span>
+    <div class="section-title">பொதுமக்கள் திருப்தி மதிப்பீடு
+      <span>Public Satisfaction Assessment</span>
+    </div>
+  </div>
+  <div class="section-body" style="padding:0; overflow-x:auto;">
+    <table class="sat-table">
+      <thead>
+        <tr>
+          <th>மதிப்பீட்டு அளவுகோல் / Criterion</th>
+          <th>மிகவும் திருப்தி ★★★★</th>
+          <th>திருப்தி ★★★</th>
+          <th>சுமார் ★★</th>
+          <th>திருப்தியில்லை ★</th>
+        </tr>
+      </thead>
+      <tbody id="sat-rows"></tbody>
+    </table>
+    <div style="padding:20px;">
+      <label style="margin-bottom:10px; display:block;"><span class="ta">நேரில் வந்த குடிமக்களின் கருத்துக்கள் / புகார்கள்</span>Field Observations from Citizens</label>
+      <div class="obs-group">
+        <div class="obs-item"><div class="obs-num">1</div><textarea name="citizen1" placeholder="குடிமகன் 1 கருத்து..."></textarea></div>
+        <div class="obs-item"><div class="obs-num">2</div><textarea name="citizen2" placeholder="குடிமகன் 2 கருத்து..."></textarea></div>
+        <div class="obs-item"><div class="obs-num">3</div><textarea name="citizen3" placeholder="குடிமகன் 3 கருத்து..."></textarea></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PART H – Findings ═══ -->
+<div class="section-card" style="animation-delay:0.4s">
+  <div class="section-header">
+    <span class="section-badge">பகுதி ஏ</span>
+    <div class="section-title">கூடுதல் கண்டறிதல்கள் மற்றும் பரிந்துரைகள்
+      <span>Additional Findings & Recommendations</span>
+    </div>
+  </div>
+  <div class="section-body">
+    <label style="margin-bottom:8px; display:block;"><span class="ta">நல்ல நடைமுறைகள் (Good Practices)</span>Commendable Points</label>
+    <div class="rec-list" style="margin-bottom:20px;">
+      <div class="rec-item"><div class="rec-bullet green"></div><input type="text" name="good1" placeholder="நல்ல நடைமுறை 1..."></div>
+      <div class="rec-item"><div class="rec-bullet green"></div><input type="text" name="good2" placeholder="நல்ல நடைமுறை 2..."></div>
+    </div>
+
+    <label style="margin-bottom:8px; display:block;"><span class="ta">முன்னேற்றம் தேவைப்படும் துறைகள் (Areas Needing Improvement)</span></label>
+    <div class="rec-list" style="margin-bottom:20px;">
+      <div class="rec-item"><div class="rec-bullet red"></div><input type="text" name="improve1" placeholder="முன்னேற்றம் தேவை 1..."></div>
+      <div class="rec-item"><div class="rec-bullet red"></div><input type="text" name="improve2" placeholder="முன்னேற்றம் தேவை 2..."></div>
+      <div class="rec-item"><div class="rec-bullet red"></div><input type="text" name="improve3" placeholder="முன்னேற்றம் தேவை 3..."></div>
+    </div>
+
+    <label style="margin-bottom:8px; display:block;"><span class="ta">தன்னார்வலர் பரிந்துரைகள் (Volunteer Recommendations)</span></label>
+    <div class="rec-list">
+      <div class="rec-item"><div class="rec-bullet"></div><input type="text" name="rec1" placeholder="பரிந்துரை 1..."></div>
+      <div class="rec-item"><div class="rec-bullet"></div><input type="text" name="rec2" placeholder="பரிந்துரை 2..."></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ OATH & SIGNATURES ═══ -->
+<div class="section-card" style="animation-delay:0.45s">
+  <div class="section-header">
+    <span class="section-badge">உறுதிமொழி</span>
+    <div class="section-title">தன்னார்வலர் உறுதிமொழி & கையொப்பங்கள்
+      <span>Volunteer Declaration & Signatures</span>
+    </div>
+  </div>
+  <div class="section-body">
+    <div class="oath-box">
+      <div class="oath-text">
+        மேற்குறிப்பிட்ட விவரங்கள் அனைத்தும் நேரில் கண்டறிந்த உண்மையான தகவல்கள் என்று உறுதியளிக்கிறேன். படிவம் பூர்த்தி செய்யும் முன்னர் அலுவலக PRO / அலுவலக தலைமை அலுவலரிடம் முன்னுரை கடிதம் வழங்கப்பட்டுள்ளது.
+      </div>
+      <div class="sig-grid">
+        <div class="sig-box">
+          <label><span class="ta">தன்னார்வலர் கையொப்பம்</span>Volunteer Signature</label>
+          <input class="sig-line" type="text" name="sig_volunteer" placeholder="">
+          <div class="field-group" style="margin-top:8px; gap:8px;">
+            <div class="field">
+              <label>தேதி Date</label>
+              <input type="date" name="sig_date">
+            </div>
+            <div class="field">
+              <label>நேரம் Time</label>
+              <input type="time" name="sig_time">
+            </div>
+          </div>
+        </div>
+        <div class="sig-box">
+          <label><span class="ta">PRO / அலுவலகத் தலைவர் கையொப்பம்</span>PRO / Head Signature</label>
+          <input class="sig-line" type="text" name="sig_pro" placeholder="">
+        </div>
+        <div class="sig-box">
+          <label><span class="ta">முத்திரை / அலுவலக மேற்பார்வையாளர்</span>Seal / Supervisor</label>
+          <input class="sig-line" type="text" name="sig_supervisor" placeholder="">
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="submit" class="btn-submit">
+        <span>📋 படிவம் சமர்ப்பிக்கவும் &nbsp;|&nbsp; Submit Audit Form</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+</form>
+
+<!-- Success -->
+<div id="success-msg">
+  <div class="check">✅</div>
+  <h3>தணிக்கை படிவம் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!</h3>
+  <p>Audit form submitted successfully.<br>மாண்புமிகு மக்கள் இயக்கம் தங்கள் பங்களிப்பிற்கு நன்றி தெரிவிக்கிறது.</p>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <strong>மாண்புமிகு மக்கள் | MAANBUMIGA MAKKAL</strong><br>
+  "ஊழல் இல்லா, மக்கள் ஆட்சி – நம் கனவு; சமூக தணிக்கை – நம் கருவி"
+</div>
+
+<script>
+// ─── AUDIT ITEMS DATA ───────────────────────────────────────
+const partB = [
+  { n:1,  ta:"அலுவலகம் அடையாளப்படுத்தும் கெயர்ப்பலகை (Name Board) தெளிவாக தமிழிலும் ஆங்கிலத்திலும் உள்ளதா?", en:"Name board clear in Tamil & English?" },
+  { n:2,  ta:"வந்துசெல்லும் குடிமக்களுக்கு குடிநீர் வசதி உள்ளதா?", en:"Drinking water facility available?" },
+  { n:3,  ta:"பொதுமக்களுக்காக காத்திருப்பு அறை (Waiting Area) உள்ளதா?", en:"Waiting area available?" },
+  { n:4,  ta:"காத்திருக்கும் இடத்தில் போதுமான இருக்கை வசதி உள்ளதா?", en:"Adequate seating in waiting area?" },
+  { n:5,  ta:"கழிப்பறை வசதி – ஆண்கள் / பெண்கள் தனித்தனியாக உள்ளதா?", en:"Separate toilets for Men & Women?" },
+  { n:6,  ta:"கழிப்பறை சுத்தமாகவும் பயன்பாட்டு நிலையிலும் உள்ளதா?", en:"Toilets clean and functional?" },
+  { n:7,  ta:"மாற்றுத்திறனாளிகளுக்கான சிறப்பு வசதிகள் (Ramp / Accessible Toilet) உள்ளதா?", en:"Differently abled facilities (Ramp / Accessible Toilet)?" },
+  { n:8,  ta:"போதுமான மின்விளக்கு வசதி மற்றும் காற்றோட்டம் (Fan) உள்ளதா?", en:"Adequate lighting and fan/ventilation?" },
+  { n:9,  ta:"அலுவலகத்தில் தூய்மை மற்றும் சுகாதார நிலை திருப்திகரமாக உள்ளதா?", en:"Cleanliness and sanitation satisfactory?" },
+  { n:10, ta:"எழுதும் மேசை / கவுண்டர் சேவை பொதுமக்களுக்கு எளிதில் அணுகத்தக்க வகையில் உள்ளதா?", en:"Writing desk / counter easily accessible?" },
+];
+
+const partC = [
+  { n:11, ta:"குடிமக்கள் சாசனம் (Citizen Charter) அலுவலகத்தில் தெளிவாக காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"Citizen Charter clearly displayed?" },
+  { n:12, ta:"குடிமக்கள் சாசனத்தில் சேவைகளின் விவரம், கால அளவு, பொறுப்பு அதிகாரி குறிப்பிடப்பட்டுள்ளதா?", en:"Charter includes service details, timeline & responsible officer?" },
+  { n:13, ta:"'லஞ்சம் கொடுப்பதும் வாங்குவதும் குற்றம்' என்ற எச்சரிக்கை பலகை உள்ளதா?", en:"Anti-bribery warning board displayed?" },
+  { n:14, ta:"லஞ்சம் தொடர்பான புகாருக்கு அதிகாரியின் பெயர்ப்பலகை, தொலைவபசி, மின்னஞ்சல் உள்ளதா? (Vigilance Officer)", en:"Vigilance officer details with phone & email displayed?" },
+  { n:15, ta:"RTI சட்டம் பற்றிய அறிவிப்பு மற்றும் PIO அதிகாரி பெயர், தொலைவபசி, மின்னஞ்சல் காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"RTI notice and PIO officer details displayed?" },
+  { n:16, ta:"RTI சட்டம் பிரிவு 4(1)(b) கீழ் 17 பிரிவுகளுக்கும் தகவல்கள் கொதுமக்களின் பார்வைக்கு வைக்கப்பட்டுள்ளதா?", en:"RTI Sec 4(1)(b) – 17 category disclosures available?" },
+  { n:16.1, ta:"மேற்கண்ட தகவல்கள் புதுப்பிக்கப்பட்டு வெளியிடப்பட்ட நாள்:", en:"Last published date of above information:" },
+  { n:16.2, ta:"புகார் / மேல்முறையீடு செய்வதற்கான நடைமுறை (Grievance Redressal) பெயர், தொலைவபசி, மின்னஞ்சல் காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"Grievance redressal officer details displayed?" },
+  { n:17, ta:"அலுவலகத்தின் அனைத்து தொலைவபசி எண்களும் (Helpline/Landline/Mobile) தெளிவாக காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"All office phone numbers clearly displayed?" },
+  { n:18, ta:"அலுவலக நேரம் (Office Timings) தெளிவாக காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"Office timings clearly displayed?" },
+  { n:19, ta:"புகார் பெட்டி (Complaint Box) உள்ளதா மற்றும் முறையாக பயன்படுத்தப்படுகிறதா?", en:"Complaint box present and regularly used?" },
+];
+
+const partD = [
+  { n:20, ta:"அலுவலகத்தின் அனைத்து தொலைவபசி எண்களும் செயல்பாட்டில் உள்ளனவா? (தொலைவபசியில் தொடர்புகொண்டு சரிபார்க்கப்பட்டது)", en:"All office phones operational? (verified by calling)" },
+  { n:21, ta:"அலுவலகத்தில் CCTV கேமராக்கள் நிறுவப்பட்டுள்ளனவா?", en:"CCTV cameras installed in office?" },
+  { n:22, ta:"நிறுவப்பட்டுள்ள CCTV கேமராக்கள் அனைத்தும் செயல்பாட்டு நிலையில் உள்ளனவா?", en:"All installed CCTV cameras operational?" },
+];
+
+const partE = [
+  { n:23, ta:"குடிமக்கள் சாசனத்தில் குறிப்பிட்டுள்ள கால அளவில் சேவைகள் வழங்கப்படுகின்றனவா?", en:"Services delivered within charter-specified timeframe?" },
+  { n:25, ta:"சேவை மறுக்கப்பட்டால் காரணம் எழுத்துப்பூர்வமாக வழங்கப்படுகிறதா?", en:"Written reason given when service is denied?" },
+  { n:26, ta:"ஒவ்வொரு சேவைக்கும் கட்டணம் (Fee/No Fee) தெளிவாக காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"Service fee (or free) clearly displayed for each service?" },
+  { n:27, ta:"இணையதளம் / ஆன்லைன் சேவை இணைப்பு (Online Service Link / QR Code) காட்சிப்படுத்தப்பட்டுள்ளதா?", en:"Online service link / QR Code displayed?" },
+];
+
+const partF = [
+  { n:28, ta:"ஊழியர்கள் அடையாள அட்டை (ID Badge) அணிந்திருக்கின்றனரா?", en:"Staff wearing ID badges?" },
+  { n:29, ta:"பொதுமக்கள் மரியாதையாக நடத்தப்படுகின்றனரா?", en:"Public treated with respect?" },
+  { n:30, ta:"பொதுமக்கள் காத்திருக்க வேண்டிய நேரம் நியாயமானதாக உள்ளதா? (Waiting Time)", en:"Waiting time reasonable?" },
+  { n:31, ta:"டோக்கன் / வரிசை முறை (Token / Queue System) பயன்பாட்டில் உள்ளதா?", en:"Token / queue system in use?" },
+  { n:32, ta:"அலுவலர்கள் குறித்த நேரத்திற்கு வருகின்றனரா?", en:"Staff arriving on time?" },
+  { n:33, ta:"பொதுமக்களுக்கு தேவையான வழிகாட்டுதல் (Help Desk / Information Desk) உள்ளதா?", en:"Help desk / information desk available?" },
+];
+
+const satItems = [
+  { ta:"அலுவலகத்தின் ஒட்டுமொத்த செயல்பாடு", en:"Overall office performance" },
+  { ta:"ஊழியர்களின் நடத்தை", en:"Staff conduct" },
+  { ta:"சேவை வழங்கும் கால அளவு", en:"Service delivery time" },
+  { ta:"கட்டமைப்பு வசதிகள்", en:"Infrastructure facilities" },
+  { ta:"தகவல் வெளிப்படைத்தன்மை", en:"Information transparency" },
+];
+
+// ─── RENDER TABLE ROWS ─────────────────────────────────────
+function makeRows(items, tbodyId, prefix) {
+  const tbody = document.getElementById(tbodyId);
+  items.forEach((item, i) => {
+    const tr = document.createElement('tr');
+    const n = typeof item.n === 'number' && item.n % 1 !== 0 ? item.n.toFixed(1) : item.n;
+    tr.innerHTML = `
+      <td>${n}</td>
+      <td>
+        <div class="item-text">
+          ${item.ta}
+          <span class="en">${item.en}</span>
+        </div>
+      </td>
+      <td>
+        <div class="radio-group">
+          <input type="radio" name="${prefix}_${i}" id="${prefix}_${i}_yes" value="yes">
+          <label for="${prefix}_${i}_yes">ஆம்</label>
+        </div>
+      </td>
+      <td>
+        <div class="radio-group">
+          <input type="radio" name="${prefix}_${i}" id="${prefix}_${i}_no" value="no">
+          <label for="${prefix}_${i}_no">இல்லை</label>
+        </div>
+      </td>
+      <td>
+        <div class="radio-group">
+          <input type="radio" name="${prefix}_${i}" id="${prefix}_${i}_na" value="na">
+          <label for="${prefix}_${i}_na">கல்</label>
+        </div>
+      </td>
+      <td>
+        <input type="text" class="notes-input" name="${prefix}_${i}_notes" placeholder="குறிப்பு...">
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function makeSatRows() {
+  const tbody = document.getElementById('sat-rows');
+  satItems.forEach((item, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>
+        <div class="item-text">
+          ${item.ta}
+          <span class="en">${item.en}</span>
+        </div>
+      </td>
+      ${[4,3,2,1].map(v => `
+        <td style="text-align:center;">
+          <div class="radio-group" style="justify-content:center;">
+            <input type="radio" name="sat_${i}" id="sat_${i}_${v}" value="${v}">
+            <label for="sat_${i}_${v}" style="font-size:1.5rem; border:none; background:none; padding:2px; color:var(--gray-200); letter-spacing:0; text-transform:none; font-weight:400;">★</label>
+          </div>
+        </td>
+      `).join('')}
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Star hover effect
+  document.querySelectorAll('#sat-rows .radio-group input[type=radio]').forEach(radio => {
+    radio.addEventListener('change', function() {
+      const siblings = document.querySelectorAll(`[name="${this.name}"] + label`);
+      // handled by CSS
+    });
+  });
+}
+
+makeRows(partB, 'part-b-rows', 'b');
+makeRows(partC, 'part-c-rows', 'c');
+makeRows(partD, 'part-d-rows', 'd');
+makeRows(partE, 'part-e-rows', 'e');
+makeRows(partF, 'part-f-rows', 'f');
+makeSatRows();
+
+// ─── PROGRESS ─────────────────────────────────────────────
+const sections = ['அ – விவரங்கள்','ஆ – கட்டமைப்பு','இ – அறிவிப்பு பலகைகள்','ஈ – CCTV','உ – சாசன இணக்கம்','ஊ – ஊழியர் நடத்தை','எ – திருப்தி','ஏ – பரிந்துரைகள்'];
+let currentSection = 0;
+
+function updateProgress() {
+  const inputs = document.querySelectorAll('#audit-form input, #audit-form textarea, #audit-form select');
+  let filled = 0;
+  inputs.forEach(inp => {
+    if (inp.type === 'radio' || inp.type === 'checkbox') {
+      if (inp.checked) filled++;
+    } else if (inp.value.trim()) {
+      filled++;
+    }
+  });
+  const total = inputs.length;
+  const pct = Math.min(100, Math.round((filled / total) * 100));
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+
+  // estimate which section we're in
+  const cards = document.querySelectorAll('.section-card');
+  let visibleSection = 0;
+  cards.forEach((card, i) => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.4) visibleSection = i;
+  });
+  document.getElementById('progress-text').textContent = sections[Math.min(visibleSection, sections.length-1)] || '';
+}
+
+document.getElementById('audit-form').addEventListener('input', updateProgress);
+window.addEventListener('scroll', updateProgress);
+updateProgress();
+
+// ─── SUBMIT ───────────────────────────────────────────────
+document.getElementById('audit-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.innerHTML = '<span>⏳ சமர்ப்பிக்கப்படுகிறது...</span>';
+  setTimeout(() => {
+    document.getElementById('audit-form').style.display = 'none';
+    const msg = document.getElementById('success-msg');
+    msg.style.display = 'block';
+    msg.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('progress-fill').style.width = '100%';
+    document.getElementById('progress-pct').textContent = '100%';
+    document.getElementById('progress-text').textContent = 'படிவம் சமர்ப்பிக்கப்பட்டது ✓';
+  }, 900);
+});
+</script>
+</body>
+</html>
