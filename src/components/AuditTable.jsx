@@ -27,6 +27,26 @@ const AuditTable = ({ items, prefix, formData, onChange }) => {
                   <div className="item-text">
                     {item.ta}
                     <span className="en">{item.en}</span>
+                    {item.inputType && (
+                      <div className="custom-input-wrap" style={{ marginTop: '8px' }}>
+                        <input 
+                          type={item.inputType} 
+                          name={`${prefix}_${i}_data`}
+                          className="custom-data-input"
+                          style={{ 
+                            padding: '6px 10px', 
+                            borderRadius: '4px', 
+                            border: '1px solid var(--gray-300)',
+                            fontSize: '0.85rem',
+                            width: '100%',
+                            maxWidth: '200px'
+                          }}
+                          onChange={onChange}
+                          value={formData[`${prefix}_${i}_data`] || ''}
+                          placeholder={item.inputType === 'number' ? 'Enter number...' : 'Select date...'}
+                        />
+                      </div>
+                    )}
                   </div>
                 </td>
                 <td>
